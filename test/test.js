@@ -22,20 +22,21 @@ function testBinaryPacker0x0001(test, pass, miss) {
             x: 1, y: 2, w: 101, h: 102
         };
 
-    var bp = new BinaryPacker();
-    var packed = bp.pack(source, formatID);
-    var result = bp.unpack(packed);
+    var packed = BinaryPacker.pack(source, formatID);
+    var result = BinaryPacker.unpack(packed);
+    var bytes  = BinaryPacker.getBytes(source, formatID);
 
     if (source.x === result.x &&
         source.y === result.y &&
         source.w === result.w &&
         source.h === result.h) {
 
-        test.done(pass());
-    } else {
-        test.done(miss());
-        console.log("ERROR");
+        if (bytes === 16) {
+            test.done(pass());
+            return;
+        }
     }
+    test.done(miss());
 }
 
 })((this || 0).self || global);
