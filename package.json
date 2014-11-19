@@ -33,12 +33,11 @@
     "target":       ["all"],
     "label":        ["@dev"],
     "module": {
-      "develop":    ["uupaa.valid.js"],
-      "release":    ["uupaa.binarypacker.js"]
+      "develop":    ["uupaa.valid.js", "uupaa.binarypacker.js"],
+      "release":    []
     }
   },
   "dependencies": {
-    "uupaa.binarypacker.js": ""
   },
   "devDependencies": {
     "uupaa.nodemodule.js": "",
@@ -51,7 +50,8 @@
     "uupaa.watch.js":   "",
     "uupaa.plato.js":   "",
     "uupaa.minify.js":  "",
-    "uupaa.webmoduleutility.js": ""
+    "uupaa.webmoduleutility.js": "",
+    "uupaa.binarypacker.js": ""
   },
   "lib":            "./lib/",
   "main":           "./index.js",

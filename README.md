@@ -21,15 +21,15 @@ Rect pack/unpack for BinaryPacker.js
 <script>
 
 var formatID = 0x0001; // RECT
-var object = { x: 0, y: 0, w: 100, h: 100 };
+var source = { x: 0, y: 0, w: 100, h: 100 };
 var bp = new BinaryPacker();
-var packed = bp.pack(object, formatID);
-var unpacked = bp.unpack(packed);
+var packed = bp.pack(source, formatID);
+var result = bp.unpack(packed);
 
-if ( object.x === unpacked.x &&
-     object.y === unpacked.y &&
-     object.w === unpacked.w &&
-     object.h === unpacked.h) {
+if ( object.x === result.x &&
+     object.y === result.y &&
+     object.w === result.w &&
+     object.h === result.h) {
     console.log("OK");
 } else {
     console.log("ERROR");
@@ -41,7 +41,7 @@ if ( object.x === unpacked.x &&
 
 ```js
 importScripts("lib/BinaryPacker.js");
-importScripts("lib/BinaryPacker0x0001.js"); // RECT
+importScripts("lib/BinaryPacker0x0001.js");
 
 ...
 ```
@@ -50,7 +50,7 @@ importScripts("lib/BinaryPacker0x0001.js"); // RECT
 
 ```js
 var BinaryPacker = require("lib/BinaryPacker.js");
-var BinaryPacker0x0001 = require("lib/BinaryPacker0x0001.js"); // RECT
+var BinaryPacker0x0001 = require("lib/BinaryPacker0x0001.js");
 
 ...
 ```
