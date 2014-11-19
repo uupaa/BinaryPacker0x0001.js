@@ -18,16 +18,19 @@ return new Test("BinaryPacker0x0001", {
 function testBinaryPacker0x0001(test, pass, miss) {
 
     var formatID = 0x0001; // RECT
-    var object = { x: 0, y: 0, w: 100, h: 100 };
+    var source = {
+            x: 1, y: 2, w: 101, h: 102
+        };
 
     var bp = new BinaryPacker();
-    var packed = bp.pack(object, formatID);
-    var unpacked = bp.unpack(packed);
+    var packed = bp.pack(source, formatID);
+    var result = bp.unpack(packed);
 
-    if ( object.x === unpacked.x &&
-         object.y === unpacked.y &&
-         object.w === unpacked.w &&
-         object.h === unpacked.h) {
+    if (source.x === result.x &&
+        source.y === result.y &&
+        source.w === result.w &&
+        source.h === result.h) {
+
         test.done(pass());
     } else {
         test.done(miss());
