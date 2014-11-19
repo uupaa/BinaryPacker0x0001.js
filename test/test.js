@@ -12,47 +12,26 @@ return new Test("BinaryPacker0x0001", {
         button:     true,
         both:       true, // test the primary module and secondary module
     }).add([
-        testBinaryPacker0x0001_value,
-        testBinaryPacker0x0001_isNumber,
-        testBinaryPacker0x0001_isInteger,
+        testBinaryPacker0x0001,
     ]).run().clone();
 
-function testBinaryPacker0x0001_value(test, pass, miss) {
+function testBinaryPacker0x0001(test, pass, miss) {
 
-    var result = new BinaryPacker0x0001(123.4).value();
+    var formatID = 0x0001; // RECT
+    var object = { x: 0, y: 0, w: 100, h: 100 };
 
-    if (result === 123.4) {
+    var bp = new BinaryPacker();
+    var packed = bp.pack(object, formatID);
+    var unpacked = bp.unpack(packed);
+
+    if ( object.x === unpacked.x &&
+         object.y === unpacked.y &&
+         object.w === unpacked.w &&
+         object.h === unpacked.h) {
         test.done(pass());
     } else {
         test.done(miss());
-    }
-}
-
-function testBinaryPacker0x0001_isNumber(test, pass, miss) {
-
-    var result = [
-            new BinaryPacker0x0001(123.4).isNumber(),  // true
-            new BinaryPacker0x0001(123.0).isNumber()   // true
-        ];
-
-    if (!/false/.test(result.join())) {
-        test.done(pass());
-    } else {
-        test.done(miss());
-    }
-}
-
-function testBinaryPacker0x0001_isInteger(test, pass, miss) {
-
-    var result = [
-           !new BinaryPacker0x0001(123.4).isInteger(), // !false -> true
-            new BinaryPacker0x0001(123.0).isInteger()  // true
-        ];
-
-    if (!/false/.test(result.join())) {
-        test.done(pass());
-    } else {
-        test.done(miss());
+        console.log("ERROR");
     }
 }
 
