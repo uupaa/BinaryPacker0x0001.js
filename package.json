@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.binarypacker0x0001.js",
-  "version":        "0.0.5",
+  "version":        "0.0.6",
   "description":    "Rect pack/unpack for BinaryPacker.js",
   "url":            "https://github.com/uupaa/BinaryPacker0x0001.js",
   "keywords":       ["BinaryPacker", "uupaa", "WebModule", "Unstable"],
