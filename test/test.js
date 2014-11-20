@@ -22,16 +22,17 @@ function testBinaryPacker0x0001(test, pass, miss) {
             x: 1, y: 2, w: 101, h: 102
         };
 
+debugger;
     var packed = BinaryPacker.pack(source, formatID);
     var result = BinaryPacker.unpack(packed);
-    var bytes  = BinaryPacker.getBytes(source, formatID);
+    var bodyLength = BinaryPacker.getBodyLength(source, formatID);
 
     if (source.x === result.x &&
         source.y === result.y &&
         source.w === result.w &&
         source.h === result.h) {
 
-        if (bytes === 16) {
+        if (bodyLength === 8) {
             test.done(pass());
             return;
         }
