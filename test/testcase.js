@@ -22,7 +22,6 @@ function testBinaryPacker0x0001(test, pass, miss) {
             x: 1, y: 2, w: 101, h: 102
         };
 
-debugger;
     var packed = BinaryPacker.pack(source, formatID);
     var result = BinaryPacker.unpack(packed);
     var bodyLength = BinaryPacker.getBodyLength(source, formatID);
